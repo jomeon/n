@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ChannelController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+
+    Route::get('/channels', [ChannelController::class, 'index']);
+    Route::post('/channels', [ChannelController::class, 'store']);
+    Route::delete('/channels/{id}', [ChannelController::class, 'destroy']);
 });
