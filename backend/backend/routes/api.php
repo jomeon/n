@@ -17,7 +17,9 @@ use App\Http\Controllers\ChannelController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 
-    Route::get('/channels', [ChannelController::class, 'index']);
-    Route::post('/channels', [ChannelController::class, 'store']);
-    Route::delete('/channels/{id}', [ChannelController::class, 'destroy']);
+
 });
+Route::get('/getChannels', [ChannelController::class, 'index']);
+Route::post('/createChannels', [ChannelController::class, 'store']);
+Route::delete('/deleteChannels/{id}', [ChannelController::class, 'destroy']);
+Route::put('/updateChannels/{id}', [ChannelController::class, 'update']);
